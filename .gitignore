@@ -1,7 +1,12 @@
 dist/
-node_modules/
-!my-app/server/node_modules/@deity/falcon-shop-extensiongs.*
-!my-app/server/node_modules/@deity/falcon-magento2-api.*
+examples/shop-with-blog/client/node_modules/*
+my-app/client/node_modules/*
+my-app/server/node_modules/*
+!my-app/server/node_modules/@deity
+my-app/server/node_modules/@deity/*
+node_modules/*
+!my-app/server/node_modules/@deity/falcon-shop-extension
+!my-app/server/node_modules/@deity/falcon-magento2-api
 coverage/
 .DS_Store
 .idea/
