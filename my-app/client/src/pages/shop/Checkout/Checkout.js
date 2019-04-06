@@ -189,13 +189,6 @@ class CheckoutWizard extends React.Component {
               if (cart.itemsQty === 0) {
                 return <Redirect to="/" />;
               }
-              const regions = [
-                {
-                  code: 'AD',
-                  englishName: 'Andorra',
-                  localName: 'Andorra'
-                }
-              ];
 
               return (
                 <Box defaultTheme={checkoutLayout}>
@@ -221,10 +214,9 @@ class CheckoutWizard extends React.Component {
                     <Divider my="md" />
 
                     <AddressSection
-                      id="shipping-addr"
+                      id="shipping-address"
                       open={currentStep === CHECKOUT_STEPS.SHIPPING_ADDRESS}
                       countries={countries.items}
-                      regions={regions}
                       onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.SHIPPING_ADDRESS)}
                       title="Shipping address"
                       submitLabel="Continue"
@@ -238,7 +230,7 @@ class CheckoutWizard extends React.Component {
                     <Divider my="md" />
 
                     <AddressSection
-                      id="billing-addr"
+                      id="billing-address"
                       open={currentStep === CHECKOUT_STEPS.BILLING_ADDRESS}
                       onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.BILLING_ADDRESS)}
                       title="Billing address"

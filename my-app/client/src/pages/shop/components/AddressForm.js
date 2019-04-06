@@ -37,13 +37,12 @@ const addressFormLayout = {
       [AddressFormArea.city       ],
       [AddressFormArea.phone      ],
       [AddressFormArea.country    ],
-      [AddressFormArea.region    ],
       [AddressFormArea.submit     ]
     ])
   }
 };
 
-const AddressForm = ({ countries = [], regions = [], submitLabel = 'Save', id = '' }) => (
+const AddressForm = ({ countries = [], submitLabel = 'Save', id = '' }) => (
   <Box id={id} as={Form} defaultTheme={addressFormLayout}>
     <FormField name="email" type="email" label="Email" id={`${id}-email`} required gridArea={AddressFormArea.email} />
     <FormField
@@ -56,7 +55,6 @@ const AddressForm = ({ countries = [], regions = [], submitLabel = 'Save', id = 
     <FormField name="lastname" label="Last name" id={`${id}-lastname`} required gridArea={AddressFormArea.lastName} />
     <FormField name="street" label="Street" id={`${id}-street`} required gridArea={AddressFormArea.street} />
     <FormField name="postcode" label="Post code" id={`${id}-postcode`} required gridArea={AddressFormArea.postCode} />
-    <FormField name="city" label="City" id={`${id}-city`} required gridArea={AddressFormArea.city} />
 
     <Field
       name="countryId"
@@ -69,7 +67,6 @@ const AddressForm = ({ countries = [], regions = [], submitLabel = 'Save', id = 
             id={`${id}-${field.name}`}
             id_form={id}
             items={countries}
-            regions={regions}
             value={field.value}
           />
           <ErrorMessage
@@ -94,12 +91,6 @@ AddressForm.propTypes = {
   id: PropTypes.string.isRequired,
   submitLabel: PropTypes.string,
   countries: PropTypes.arrayOf(
-    PropTypes.shape({
-      localName: PropTypes.string,
-      code: PropTypes.string
-    })
-  ),
-  regions: PropTypes.arrayOf(
     PropTypes.shape({
       localName: PropTypes.string,
       code: PropTypes.string

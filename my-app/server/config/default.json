@@ -1,0 +1,77 @@
+{
+  "debug": false,
+  "port": 4000,
+  "logLevel": "info",
+  "verboseEvents": false,
+  "endpoints": {
+    "magento": {
+      "package": "@deity/falcon-magento2-api/src/endpoints",
+      "config": {
+        "host": "magento.deity.io",
+        "protocol": "https"
+      }
+    }
+  },
+  "apis": {
+    "api-wordpress": {
+      "package": "@deity/falcon-wordpress-api",
+      "config": {
+        "host": "wordpress.deity.io",
+        "protocol": "https",
+        "apiPrefix": "/wp-json/wp/v2"
+      }
+    },
+    "api-magento2": {
+      "package": "@deity/falcon-magento2-api",
+      "config": {
+        "host": "swift.demo",
+        "protocol": "http",
+        "username": "admin",
+        "password": "admin123",
+
+        "currency": {
+          "symbol": "EUR"
+        },
+
+        "demo": true,
+        "enableSwitcher": true,
+        "enableAutoDetection": false,
+        "geoMapping": {
+          "*": "default"
+        },
+        "languageMapping": {
+          "en": ["*"]
+        },
+        "codeMapping": {
+          "default": "default"
+        }
+      }
+    }
+  },
+  "extensions": {
+    "blog": {
+      "package": "@deity/falcon-blog-extension",
+      "config": {
+        "api": "api-wordpress"
+      }
+    },
+    "shop": {
+      "package": "@deity/falcon-shop-extension",
+      "config": {
+        "api": "api-magento2"
+      }
+    }
+  },
+  "session": {
+    "keys": ["secret key"],
+    "options": {
+      "key": "session-key",
+      "maxAge": 86400000,
+      "overwrite": true,
+      "httpOnly": true,
+      "signed": true,
+      "rolling": false,
+      "renew": false
+    }
+  }
+}

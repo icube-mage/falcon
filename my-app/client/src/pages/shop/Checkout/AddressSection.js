@@ -39,7 +39,6 @@ class AddressSection extends React.Component {
       submitLabel,
       errors,
       countries,
-      regions,
       availableAddresses,
       defaultSelected
     } = this.props;
@@ -54,14 +53,8 @@ class AddressSection extends React.Component {
       postcode: '',
       city: '',
       telephone: '',
-      regions: [
-        {
-          code: 'AD',
-          englishName: 'Auhuhu',
-          localName: 'Auhuhu'
-        }
-      ],
       countryId: '',
+      regionId: 1,
       ...selectedAddress
     };
 
@@ -106,7 +99,7 @@ class AddressSection extends React.Component {
         )}
         {!selectedAvailableAddress && (
           <Formik initialValues={initialAddressValue} onSubmit={this.submitAddress}>
-            {() => <AddressForm id={id} countries={countries} regions={regions} submitLabel={submitLabel} />}
+            {() => <AddressForm id={id} countries={countries} submitLabel={submitLabel} autoCompleteSection={id} />}
           </Formik>
         )}
         {!!selectedAvailableAddress && (
@@ -144,7 +137,7 @@ class AddressSection extends React.Component {
     } else {
       content = (
         <Formik initialValues={initialAddressValue} onSubmit={this.submitAddress}>
-          {() => <AddressForm id={id} countries={countries} regions={regions} submitLabel={submitLabel} />}
+          {() => <AddressForm id={id} countries={countries} submitLabel={submitLabel} autoCompleteSection={id} />}
         </Formik>
       );
     }
@@ -188,12 +181,6 @@ AddressSection.propTypes = {
   defaultSelected: PropTypes.shape({}),
   // list of available countries
   countries: PropTypes.arrayOf(
-    PropTypes.shape({
-      code: PropTypes.string,
-      localName: PropTypes.string
-    })
-  ),
-  regions: PropTypes.arrayOf(
     PropTypes.shape({
       code: PropTypes.string,
       localName: PropTypes.string

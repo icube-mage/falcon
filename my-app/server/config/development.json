@@ -1,0 +1,32 @@
+{
+  "debug": true,
+  "logLevel": "debug",
+  "apis": {
+    "api-magento2": {
+      "package": "@deity/falcon-magento2-api",
+      "config": {
+        "host": "swift.demo",
+        "protocol": "http",
+        "username": "quannh",
+        "password": "admin123",
+
+        "currency": {
+          "symbol": "EUR"
+        },
+
+        "demo": true,
+        "enableSwitcher": true,
+        "enableAutoDetection": false,
+        "geoMapping": {
+          "*": "default"
+        },
+        "languageMapping": {
+          "en": ["*"]
+        },
+        "codeMapping": {
+          "default": "default"
+        }
+      }
+    }
+  }
+}
