@@ -1,5 +1,7 @@
 dist/
 node_modules/
+!node_modules/@deity/falcon-shop-extensiongs
+!node_modules/@deity/falcon-magento2-api
 coverage/
 .DS_Store
 .idea/
