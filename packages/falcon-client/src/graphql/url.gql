@@ -1,8 +1,0 @@
-query GET_URL($path: String!) {
-  url(path: $path) {
-    type
-    redirect
-    id
-    path
-  }
-}

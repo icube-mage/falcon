@@ -1,7 +1,0 @@
-query ANALYTICS {
-  config @client {
-    googleAnalytics {
-      trackerID
-    }
-  }
-}
