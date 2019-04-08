@@ -1,6 +1,7 @@
 dist/
 examples/shop-with-blog/client/node_modules/*
 my-app/client/node_modules/*
+!my-app/client/node_modules/axios
 my-app/server/node_modules/*
 !my-app/server/node_modules/@deity
 my-app/server/node_modules/@deity/*

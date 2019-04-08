@@ -15,6 +15,7 @@ import ShippingMethodSection from './ShippingMethodSection';
 import PaymentMethodSection from './PaymentMethodSection';
 import AddressSection from './AddressSection';
 import ErrorList from '../components/ErrorList';
+import { SnapQuery } from '../components/SnapQuery';
 
 const CHECKOUT_STEPS = {
   EMAIL: 'EMAIL',
@@ -164,11 +165,6 @@ class CheckoutWizard extends React.Component {
 
     const { customerData } = this.props;
 
-    if (orderId) {
-      // order has been placed successfully so we show confirmation
-      return <Redirect to="/checkout/confirmation" />;
-    }
-
     let addresses;
     let defaultShippingAddress;
     let defaultBillingAddress;
@@ -178,6 +174,123 @@ class CheckoutWizard extends React.Component {
       ({ addresses } = customerData);
       defaultShippingAddress = addresses.find(item => item.defaultShipping);
       defaultBillingAddress = addresses.find(item => item.defaultBilling);
+    }
+
+    if (orderId) {
+      if (values.paymentMethod.code === 'snap') {
+        return (
+          <CountriesQuery>
+            {({ countries }) => (
+              <CartQuery>
+                {({ cart }) => (
+                  <Box defaultTheme={checkoutLayout}>
+                    <Box gridArea={CheckoutArea.cart}>
+                      <H2 fontSize="md" mb="md">
+                        Summary
+                      </H2>
+                      <CheckoutCartSummary cart={cart} />
+                      <Button as={RouterLink} mt="md" to="/cart">
+                        Edit cart items
+                      </Button>
+                    </Box>
+                    <Divider gridArea={CheckoutArea.divider} />
+                    <Box gridArea={CheckoutArea.checkout} position="relative">
+                      <Loader visible={loading} />
+                      <CustomerSelector
+                        open={currentStep === CHECKOUT_STEPS.EMAIL}
+                        onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.EMAIL)}
+                        email={values.email}
+                        setEmail={setEmail}
+                      />
+
+                      <Divider my="md" />
+
+                      <AddressSection
+                        id="shipping-address"
+                        open={currentStep === CHECKOUT_STEPS.SHIPPING_ADDRESS}
+                        countries={countries.items}
+                        onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.SHIPPING_ADDRESS)}
+                        title="Shipping address"
+                        submitLabel="Continue"
+                        selectedAddress={values.shippingAddress}
+                        setAddress={setShippingAddress}
+                        errors={errors.shippingAddress}
+                        availableAddresses={addresses}
+                        defaultSelected={defaultShippingAddress}
+                      />
+
+                      <Divider my="md" />
+
+                      <AddressSection
+                        id="billing-address"
+                        open={currentStep === CHECKOUT_STEPS.BILLING_ADDRESS}
+                        onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.BILLING_ADDRESS)}
+                        title="Billing address"
+                        submitLabel="Continue"
+                        countries={countries.items}
+                        selectedAddress={values.billingAddress}
+                        setAddress={setBillingAddress}
+                        setUseTheSame={setBillingSameAsShipping}
+                        useTheSame={values.billingSameAsShipping}
+                        labelUseTheSame="My billing address is the same as shipping"
+                        availableAddresses={addresses}
+                        defaultSelected={defaultBillingAddress}
+                      />
+
+                      <Divider my="md" />
+
+                      <ShippingMethodSection
+                        open={currentStep === CHECKOUT_STEPS.SHIPPING}
+                        onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.SHIPPING)}
+                        shippingAddress={values.shippingAddress}
+                        selectedShipping={values.shippingMethod}
+                        setShippingAddress={setShippingAddress}
+                        availableShippingMethods={availableShippingMethods}
+                        setShipping={setShippingMethod}
+                        errors={errors.shippingMethod}
+                      />
+
+                      <Divider my="md" />
+
+                      <PaymentMethodSection
+                        open={currentStep === CHECKOUT_STEPS.PAYMENT}
+                        onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.PAYMENT)}
+                        selectedPayment={values.paymentMethod}
+                        availablePaymentMethods={availablePaymentMethods}
+                        setPayment={setPaymentMethod}
+                        errors={errors.paymentMethod}
+                      />
+
+                      <Divider my="md" />
+                      <SnapQuery
+                        variables={{
+                          orderId
+                        }}
+                      >
+                        {({ snapToken }) => (
+                          <Box>
+                            {snapToken.name}
+                            <Divider my="md" />
+                            <script
+                              src="https://app.sandbox.midtrans.com/snap/snap.js"
+                              src_type="url"
+                              data-client-key="gjlgjskljglasjdgljsdg"
+                            />
+                          </Box>
+                        )}
+                      </SnapQuery>
+                      <ErrorList errors={errors.order} />
+                      {currentStep === CHECKOUT_STEPS.CONFIRMATION && <Button onClick={placeOrder}>Place order</Button>}
+                    </Box>
+                  </Box>
+                )}
+              </CartQuery>
+            )}
+          </CountriesQuery>
+        );
+      }
+      // order has been placed successfully so we show confirmation
+      return <Redirect to="/checkout/confirmation" />;
     }
 
     return (
