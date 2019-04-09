@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
 import { Box, H2, Button, Divider, Icon } from '@deity/falcon-ui';
 import {
@@ -119,12 +120,28 @@ class CheckoutWizard extends React.Component {
 
   componentDidMount() {
     const script = document.createElement('script');
-    script.src = 'https://app.sandbox.midtrans.com/snap/snap.js';
-    script.async = true;
-    script.setAttribute('data-client-key', 'VT-client-fXGixBfmOiXeoUs0');
-    script.onload = () => this.scriptLoaded();
 
-    document.body.appendChild(script);
+    axios
+      .get(
+        `http://localhost:4000/graphql?query={
+          infoSnap {
+            is_production
+            client_id
+          }
+        }`
+      )
+      .then(res => {
+        const clientId = res.data.data.infoSnap.client_id;
+        const isProduction = res.data.data.infoSnap.is_production;
+        if (isProduction !== 0) {
+          script.src = 'https://app.midtrans.com/snap/snap.js';
+        } else {
+          script.src = 'https://app.sandbox.midtrans.com/snap/snap.js';
+        }
+        script.async = true;
+        script.setAttribute('data-client-key', clientId);
+        document.body.appendChild(script);
+      });
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
