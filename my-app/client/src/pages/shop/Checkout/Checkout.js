@@ -14,6 +14,7 @@ import CustomerSelector from './CustomerSelector';
 import ShippingMethodSection from './ShippingMethodSection';
 import PaymentMethodSection from './PaymentMethodSection';
 import AddressSection from './AddressSection';
+import SnapPayment from '../components/SnapPayment';
 import ErrorList from '../components/ErrorList';
 import { SnapQuery } from '../components/SnapQuery';
 
@@ -114,6 +115,16 @@ class CheckoutWizard extends React.Component {
       currentStep: CHECKOUT_STEPS.EMAIL,
       getCurrentProps: () => this.props // eslint-disable-line react/no-unused-state
     };
+  }
+
+  componentDidMount() {
+    const script = document.createElement('script');
+    script.src = 'https://app.sandbox.midtrans.com/snap/snap.js';
+    script.async = true;
+    script.setAttribute('data-client-key', 'VT-client-fXGixBfmOiXeoUs0');
+    script.onload = () => this.scriptLoaded();
+
+    document.body.appendChild(script);
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
@@ -269,13 +280,7 @@ class CheckoutWizard extends React.Component {
                       >
                         {({ snapToken }) => (
                           <Box>
-                            {snapToken.name}
-                            <Divider my="md" />
-                            <script
-                              src="https://app.sandbox.midtrans.com/snap/snap.js"
-                              src_type="url"
-                              data-client-key="gjlgjskljglasjdgljsdg"
-                            />
+                            <SnapPayment snaptoken={snapToken.name} />
                           </Box>
                         )}
                       </SnapQuery>
