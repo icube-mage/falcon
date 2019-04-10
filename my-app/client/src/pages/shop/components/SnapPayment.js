@@ -3,6 +3,10 @@ import axios from 'axios';
 import { Box } from '@deity/falcon-ui';
 import { Redirect } from 'react-router-dom';
 
+const SERVER_HTTP = {
+  linkUrl: 'http://localhost:4000/graphql'
+};
+
 class SnapPayment extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +26,7 @@ class SnapPayment extends React.Component {
         if (result.va_numbers != null) {
           axios
             .get(
-              `http://localhost:4000/graphql?query={
+              `${SERVER_HTTP.linkUrl}?query={
           vacodeSnap(va: ${result.va_numbers[0].va_number}, oid : ${result.order_id}) {
             success
           }
@@ -45,7 +49,7 @@ class SnapPayment extends React.Component {
         if (result.va_numbers != null) {
           axios
             .get(
-              `http://localhost:4000/graphql?query={
+              `${SERVER_HTTP.linkUrl}?query={
           vacodeSnap(va: ${result.va_numbers[0].va_number}, oid : ${result.order_id}) {
             success
           }
@@ -67,7 +71,7 @@ class SnapPayment extends React.Component {
       onError(result) {
         axios
           .get(
-            `http://localhost:4000/graphql?query={
+            `${SERVER_HTTP.linkUrl}?query={
           failSnap(order_id: ${orderId}) {
             redirect
             quote_id
@@ -82,7 +86,7 @@ class SnapPayment extends React.Component {
       onClose() {
         axios
           .get(
-            `http://localhost:4000/graphql?query={
+            `${SERVER_HTTP.linkUrl}?query={
           failSnap(order_id: ${orderId}) {
             redirect
             quote_id
