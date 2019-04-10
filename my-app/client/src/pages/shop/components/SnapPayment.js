@@ -20,9 +20,21 @@ class SnapPayment extends React.Component {
       // Optional
       onSuccess(result) {
         if (result.va_numbers != null) {
-          snapPaymentOb.setState({
-            redirect: 'confirmation'
-          });
+          axios
+            .get(
+              `http://localhost:4000/graphql?query={
+          vacodeSnap(va: ${result.va_numbers[0].va_number}, oid : ${result.order_id}) {
+            success
+          }
+        }`
+            )
+            .then(res => {
+              if (res.data) {
+                snapPaymentOb.setState({
+                  redirect: 'confirmation'
+                });
+              }
+            });
         }
         snapPaymentOb.setState({
           redirect: 'confirmation'
@@ -31,9 +43,21 @@ class SnapPayment extends React.Component {
       // Optional
       onPending(result) {
         if (result.va_numbers != null) {
-          snapPaymentOb.setState({
-            redirect: 'confirmation'
-          });
+          axios
+            .get(
+              `http://localhost:4000/graphql?query={
+          vacodeSnap(va: ${result.va_numbers[0].va_number}, oid : ${result.order_id}) {
+            success
+          }
+        }`
+            )
+            .then(res => {
+              if (res.data) {
+                snapPaymentOb.setState({
+                  redirect: 'confirmation'
+                });
+              }
+            });
         }
         snapPaymentOb.setState({
           redirect: 'confirmation'
