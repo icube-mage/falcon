@@ -72,29 +72,51 @@ class SnapPayment extends React.Component {
         axios
           .get(
             `${SERVER_HTTP.linkUrl}?query={
-          failSnap(order_id: ${orderId}) {
-            redirect
-            quote_id
+          createCart {
+            quoteId
           }
         }`
           )
           .then(res => {
-            console.log(result.status_message);
-            console.log(res.data);
+            console.log(result.message);
+            console.log(res.data.data.createCart.quoteId);
+            axios
+              .get(
+                `${SERVER_HTTP.linkUrl}?query={
+          failSnap(order_id: ${orderId}, quote_id: "${res.data.data.createCart.quoteId}") {
+            redirect
+            quote_id
+          }
+        }`
+              )
+              .then(response => {
+                console.log(response.data);
+              });
           });
       },
       onClose() {
         axios
           .get(
             `${SERVER_HTTP.linkUrl}?query={
-          failSnap(order_id: ${orderId}) {
-            redirect
-            quote_id
+          createCart {
+            quoteId
           }
         }`
           )
           .then(res => {
-            console.log(res.data);
+            console.log(res.data.data.createCart.quoteId);
+            axios
+              .get(
+                `${SERVER_HTTP.linkUrl}?query={
+          failSnap(order_id: ${orderId}, quote_id: "${res.data.data.createCart.quoteId}") {
+            redirect
+            quote_id
+          }
+        }`
+              )
+              .then(response => {
+                console.log(response.data);
+              });
           });
       }
     });
