@@ -12,13 +12,14 @@ class SnapPayment extends React.Component {
     super(props);
     this.state = {
       orderId: this.props.orderid,
+      quoteId: this.props.quoteId,
       redirect: ''
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const snapPayment = window.snap;
-    const { orderId } = this.state;
+    const { orderId, quoteId } = this.state;
     const snapPaymentOb = this;
     snapPayment.pay(this.props.snaptoken, {
       // Optional
@@ -72,52 +73,37 @@ class SnapPayment extends React.Component {
         axios
           .get(
             `${SERVER_HTTP.linkUrl}?query={
-          createCart {
-            quoteId
-          }
-        }`
-          )
-          .then(res => {
-            console.log(result.message);
-            console.log(res.data.data.createCart.quoteId);
-            axios
-              .get(
-                `${SERVER_HTTP.linkUrl}?query={
-          failSnap(order_id: ${orderId}, quote_id: "${res.data.data.createCart.quoteId}") {
+          failSnap(order_id: ${orderId}, quote_id: "${quoteId}") {
             redirect
             quote_id
           }
         }`
-              )
-              .then(response => {
-                console.log(response.data);
-              });
+          )
+          .then(response => {
+            console.log(result.message);
+            console.log(response.data);
           });
+
+        snapPaymentOb.setState({
+          redirect: 'cart'
+        });
       },
       onClose() {
         axios
           .get(
             `${SERVER_HTTP.linkUrl}?query={
-          createCart {
-            quoteId
-          }
-        }`
-          )
-          .then(res => {
-            console.log(res.data.data.createCart.quoteId);
-            axios
-              .get(
-                `${SERVER_HTTP.linkUrl}?query={
-          failSnap(order_id: ${orderId}, quote_id: "${res.data.data.createCart.quoteId}") {
+          failSnap(order_id: ${orderId}, quote_id: "${quoteId}") {
             redirect
             quote_id
           }
         }`
-              )
-              .then(response => {
-                console.log(response.data);
-              });
+          )
+          .then(response => {
+            console.log(response.data);
           });
+        snapPaymentOb.setState({
+          redirect: 'cart'
+        });
       }
     });
   }
@@ -125,6 +111,16 @@ class SnapPayment extends React.Component {
   render() {
     if (this.state.redirect === 'confirmation') {
       return <Redirect to="/checkout/confirmation" />;
+    }
+    if (this.state.redirect === 'cart') {
+      return (
+        <Redirect
+          to={{
+            pathname: '/cart',
+            state: { id: 'snap', order_id: this.state.orderId }
+          }}
+        />
+      );
     }
     return <Box />;
   }

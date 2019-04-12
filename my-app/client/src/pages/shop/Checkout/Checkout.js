@@ -297,7 +297,7 @@ class CheckoutWizard extends React.Component {
                       >
                         {({ snapToken }) => (
                           <Box>
-                            <SnapPayment snaptoken={snapToken.name} orderid={orderId} />
+                            <SnapPayment quoteId={snapToken.quoteId} snaptoken={snapToken.name} orderid={orderId} />
                           </Box>
                         )}
                       </SnapQuery>

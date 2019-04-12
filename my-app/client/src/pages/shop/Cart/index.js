@@ -29,35 +29,43 @@ const CartItemsList = ({ items }) => (
 CartItemsList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({}))
 };
-
-const CartPage = () => (
-  <CartQuery>
-    {({ cart }) => (
-      <Box mt="xxl" defaultTheme={cartLayout}>
-        <H1 fontSize="xl">
-          <T id="cart.title" />
-        </H1>
-        {cart.items.length > 0 ? (
-          <React.Fragment>
-            <CartItemsList items={cart.items} />
-            <CartSummary totals={cart.totals} couponCode={cart.couponCode} />
-            <Button as={RouterLink} to="/checkout" alignSelf="center" px="xxxl">
-              <T id="cart.checkout" />
-            </Button>
-          </React.Fragment>
-        ) : (
-          <Box display="flex" flexDirection="column" alignItems="center">
-            <Text mt="lg">
-              <T id="cart.emptyCart" />
-            </Text>
-            <Button mt="sm" as={RouterLink} to="/">
-              <T id="cart.goShoppingButton" />
-            </Button>
+class CartPage extends React.Component {
+  componentDidMount() {
+    if (this.props.location.state !== undefined && this.props.location.state.id === 'snap') {
+      console.log('bb');
+    }
+  }
+  render() {
+    return (
+      <CartQuery>
+        {({ cart }) => (
+          <Box mt="xxl" defaultTheme={cartLayout}>
+            <H1 fontSize="xl">
+              <T id="cart.title" />
+            </H1>
+            {cart.items.length > 0 ? (
+              <React.Fragment>
+                <CartItemsList items={cart.items} />
+                <CartSummary totals={cart.totals} couponCode={cart.couponCode} />
+                <Button as={RouterLink} to="/checkout" alignSelf="center" px="xxxl">
+                  <T id="cart.checkout" />
+                </Button>
+              </React.Fragment>
+            ) : (
+              <Box display="flex" flexDirection="column" alignItems="center">
+                <Text mt="lg">
+                  <T id="cart.emptyCart" />
+                </Text>
+                <Button mt="sm" as={RouterLink} to="/">
+                  <T id="cart.goShoppingButton" />
+                </Button>
+              </Box>
+            )}
           </Box>
         )}
-      </Box>
-    )}
-  </CartQuery>
-);
+      </CartQuery>
+    );
+  }
+}
 
 export default CartPage;
