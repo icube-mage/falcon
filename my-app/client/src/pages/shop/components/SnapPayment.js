@@ -44,6 +44,19 @@ class SnapPayment extends React.Component {
         snapPaymentOb.setState({
           redirect: 'confirmation'
         });
+        axios
+          .get(
+            `${SERVER_HTTP.linkUrl}?query={
+          removeCart {
+            success
+          } 
+        }`
+          )
+          .then(res => {
+            if (res.data) {
+              console.log(res.data);
+            }
+          });
       },
       // Optional
       onPending(result) {
@@ -67,6 +80,19 @@ class SnapPayment extends React.Component {
         snapPaymentOb.setState({
           redirect: 'confirmation'
         });
+        axios
+          .get(
+            `${SERVER_HTTP.linkUrl}?query={
+          removeCart {
+            success
+          } 
+        }`
+          )
+          .then(res => {
+            if (res.data) {
+              console.log(res.data);
+            }
+          });
       },
       // Optional
       onError(result) {
@@ -82,11 +108,10 @@ class SnapPayment extends React.Component {
           .then(response => {
             console.log(result.message);
             console.log(response.data);
+            snapPaymentOb.setState({
+              redirect: 'cart'
+            });
           });
-
-        snapPaymentOb.setState({
-          redirect: 'cart'
-        });
       },
       onClose() {
         axios
@@ -100,10 +125,10 @@ class SnapPayment extends React.Component {
           )
           .then(response => {
             console.log(response.data);
+            snapPaymentOb.setState({
+              redirect: 'cart'
+            });
           });
-        snapPaymentOb.setState({
-          redirect: 'cart'
-        });
       }
     });
   }
