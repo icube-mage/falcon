@@ -9,6 +9,7 @@ const HOMEPAGE_PRODUCTS_QUERY = gql`
     category(id: $categoryId) {
       products(pagination: { perPage: $amount, page: 1 }) {
         items {
+          id
           sku
           name
           price
