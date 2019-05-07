@@ -54,7 +54,6 @@ class AddressSection extends React.Component {
       city: '',
       telephone: '',
       countryId: '',
-      regionId: 1,
       ...selectedAddress
     };
 

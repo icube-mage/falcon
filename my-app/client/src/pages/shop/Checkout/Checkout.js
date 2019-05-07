@@ -108,6 +108,10 @@ const computeStepFromValues = (values, errors) => {
   return CHECKOUT_STEPS.CONFIRMATION;
 };
 
+const SERVER_HTTP = {
+  linkUrl: 'http://pwa-falcon.testingnow.me:4000/graphql'
+};
+
 class CheckoutWizard extends React.Component {
   constructor(props) {
     super(props);
@@ -120,19 +124,20 @@ class CheckoutWizard extends React.Component {
 
   componentDidMount() {
     const script = document.createElement('script');
-
     axios
       .get(
-        `http://localhost:4000/graphql?query={
+        `${SERVER_HTTP.linkUrl}?query={
           infoSnap {
             is_production
             client_id
+            is_active
           }
         }`
       )
       .then(res => {
         const clientId = res.data.data.infoSnap.client_id;
         const isProduction = res.data.data.infoSnap.is_production;
+        const isActive = res.data.data.infoSnap.is_active;
         if (isProduction !== 0) {
           script.src = 'https://app.midtrans.com/snap/snap.js';
         } else {
@@ -140,7 +145,9 @@ class CheckoutWizard extends React.Component {
         }
         script.async = true;
         script.setAttribute('data-client-key', clientId);
-        document.body.appendChild(script);
+        if (isActive === 1) {
+          document.body.appendChild(script);
+        }
       });
   }
 

@@ -25,7 +25,7 @@ const Home = () => (
     <H1 css={{ textAlign: 'center' }}>
       <T id="home.hotSellers" />
     </H1>
-    <Query query={HOMEPAGE_PRODUCTS_QUERY} variables={{ categoryId: '25', amount: 20 }}>
+    <Query query={HOMEPAGE_PRODUCTS_QUERY} variables={{ categoryId: '2', amount: 20 }}>
       {({ category }) => <ProductsList products={category.products.items} />}
     </Query>
   </GridLayout>
