@@ -10,7 +10,7 @@
     "__typename": "ApolloClientConfig",
     "httpLink": {
       "__typename": "ApolloClientConfigHttp",
-      "uri": "http://localhost:4000/graphql"
+      "uri": "http://pwa-falcon.testingnow.me:4000/graphql"
     }
   }
 }

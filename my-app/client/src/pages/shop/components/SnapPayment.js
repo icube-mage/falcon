@@ -4,7 +4,7 @@ import { Box } from '@deity/falcon-ui';
 import { Redirect } from 'react-router-dom';
 
 const SERVER_HTTP = {
-  linkUrl: 'http://localhost:4000/graphql'
+  linkUrl: 'http://pwa-falcon.testingnow.me:4000/graphql'
 };
 
 class SnapPayment extends React.Component {
