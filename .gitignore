@@ -5,6 +5,9 @@ my-app/client/node_modules/*
 my-app/server/node_modules/*
 !my-app/server/node_modules/@deity
 my-app/server/node_modules/@deity/*
+!my-app/client/node_modules/@deity
+my-app/client/node_modules/@deity/*
+!my-app/client/node_modules/@deity/falcon-ecommerce-uikit
 node_modules/*
 my-app_bk/*
 !my-app/server/node_modules/@deity/falcon-shop-extension
