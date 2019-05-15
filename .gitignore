@@ -1,4 +1,5 @@
 dist/
+!dist/Forms
 examples/shop-with-blog/client/node_modules/*
 my-app/client/node_modules/*
 !my-app/client/node_modules/axios
@@ -28,6 +29,7 @@ package-lock.json
 
 
 packages/**/dist/
+!packages/**/dist/Forms
 examples/**/build/
 examples/**/public/i18n/
 
