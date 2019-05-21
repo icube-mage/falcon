@@ -29,7 +29,6 @@ class AddressSection extends React.Component {
     delete addressInput.__typename; // eslint-disable-line no-underscore-dangle
     this.props.setAddress(addressInput);
   };
-
   render() {
     const {
       id,

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, FormField, CountrySelector, toGridTemplate } from '@deity/falcon-ecommerce-uikit';
+import { Form, Field } from 'formik';
+import { FormField, toGridTemplate } from '@deity/falcon-ecommerce-uikit';
 import { Box, Button } from '@deity/falcon-ui';
+import CountrySelectorRewrite from './CountrySelectorRewrite';
 
 const AddressFormArea = {
   firstName: 'firstName',
@@ -42,12 +44,12 @@ const addressFormLayout = {
   }
 };
 
-const AddressForm = ({ countries = [], submitLabel = 'Save', id = '', autoCompleteSection }) => {
+const AddressForm = ({ countries = [], submitLabel = 'Save', id = '', autoCompleteSection, email = '' }) => {
   const getAutoComplete = attribute => [autoCompleteSection, attribute].filter(x => x).join(' ');
 
   return (
     <Form id={id} defaultTheme={addressFormLayout}>
-      <FormField name="email" type="email" label="Email" required gridArea={AddressFormArea.email} />
+      <FormField name="email" value={`${email}`} type="email" label="Email" required gridArea={AddressFormArea.email} />
       <FormField
         name="firstname"
         label="First name"
@@ -75,17 +77,21 @@ const AddressForm = ({ countries = [], submitLabel = 'Save', id = '', autoComple
         autoComplete={getAutoComplete('address-line2')}
         gridArea={AddressFormArea.street2}
       />
-      <FormField
+      <Field
         name="countryId"
-        label="Country"
-        required
-        autoComplete={getAutoComplete('country')}
-        gridArea={AddressForm.country}
-      >
-        {({ form, field }) => (
-          <CountrySelector {...field} items={countries} onChange={x => form.setFieldValue(field.name, x)} />
+        render={({ field, form }) => (
+          <Box gridArea={AddressForm.country}>
+            <CountrySelectorRewrite
+              form={form}
+              field={field}
+              id={`${id}-${field.name}`}
+              id_form={id}
+              items={countries}
+              value={field.value}
+            />
+          </Box>
         )}
-      </FormField>
+      />
       <FormField
         name="postcode"
         label="Post code"

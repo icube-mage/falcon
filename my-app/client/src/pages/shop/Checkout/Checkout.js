@@ -155,6 +155,7 @@ class CheckoutWizard extends React.Component {
     let addresses;
     let defaultShippingAddress;
     let defaultBillingAddress;
+    values.billingSameAsShipping = true;
     let orderResult = null;
 
     if (!loading && result) {
@@ -220,6 +221,7 @@ class CheckoutWizard extends React.Component {
                       onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.SHIPPING_ADDRESS)}
                       title="Shipping address"
                       submitLabel="Continue"
+                      email={values.email}
                       selectedAddress={values.shippingAddress}
                       setAddress={setShippingAddress}
                       errors={errors.shippingAddress}
@@ -236,6 +238,7 @@ class CheckoutWizard extends React.Component {
                       title="Billing address"
                       submitLabel="Continue"
                       countries={countries.items}
+                      email={values.email}
                       selectedAddress={values.billingAddress}
                       setAddress={setBillingAddress}
                       setUseTheSame={setBillingSameAsShipping}
