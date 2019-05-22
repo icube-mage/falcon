@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { Link as RouterLink, Redirect } from 'react-router-dom';
 import { Box, H2, H4, Button, Divider } from '@deity/falcon-ui';
 import {
@@ -16,7 +17,9 @@ import CustomerSelector from './CustomerSelector';
 import ShippingMethodSection from './ShippingMethodSection';
 import PaymentMethodSection from './PaymentMethodSection';
 import AddressSection from './AddressSection';
+import SnapPayment from '../components/SnapPayment';
 import ErrorList from '../components/ErrorList';
+import { SnapQuery } from '../components/SnapQuery';
 
 const CHECKOUT_STEPS = {
   EMAIL: 'EMAIL',
@@ -93,6 +96,10 @@ const computeStepFromValues = (values, errors) => {
   return CHECKOUT_STEPS.CONFIRMATION;
 };
 
+const SERVER_HTTP = {
+  linkUrl: 'http://pwa-falcon.testingnow.me:4000/graphql'
+};
+
 class CheckoutWizard extends React.Component {
   constructor(props) {
     super(props);
@@ -101,6 +108,35 @@ class CheckoutWizard extends React.Component {
       currentStep: CHECKOUT_STEPS.EMAIL,
       getCurrentProps: () => this.props // eslint-disable-line react/no-unused-state
     };
+  }
+
+  componentDidMount() {
+    const script = document.createElement('script');
+    axios
+      .get(
+        `${SERVER_HTTP.linkUrl}?query={
+          infoSnap {
+            is_production
+            client_id
+            is_active
+          }
+        }`
+      )
+      .then(res => {
+        const clientId = res.data.data.infoSnap.client_id;
+        const isProduction = res.data.data.infoSnap.is_production;
+        const isActive = res.data.data.infoSnap.is_active;
+        if (isProduction !== 0) {
+          script.src = 'https://app.midtrans.com/snap/snap.js';
+        } else {
+          script.src = 'https://app.sandbox.midtrans.com/snap/snap.js';
+        }
+        script.async = true;
+        script.setAttribute('data-client-key', clientId);
+        if (isActive === 1) {
+          document.body.appendChild(script);
+        }
+      });
   }
 
   static getDerivedStateFromProps(nextProps, currentState) {
@@ -142,9 +178,9 @@ class CheckoutWizard extends React.Component {
       availableShippingMethods,
       availablePaymentMethods,
       setEmail,
+      setBillingSameAsShipping,
       setShippingAddress,
       setBillingAddress,
-      setBillingSameAsShipping,
       setShippingMethod,
       setPaymentMethod,
       placeOrder
@@ -169,6 +205,121 @@ class CheckoutWizard extends React.Component {
           </Box>
         );
       } else if (result.orderId) {
+        const newOrderId = result.orderId;
+        if (values.paymentMethod.code === 'snap') {
+          return (
+            <CountriesQuery>
+              {({ countries }) => (
+                <CartQuery>
+                  {({ cart }) => (
+                    <Box defaultTheme={checkoutLayout}>
+                      <Box gridArea={CheckoutArea.cart}>
+                        <H2 fontSize="md" mb="md">
+                          Summary
+                        </H2>
+                        <CheckoutCartSummary cart={cart} />
+                        <Button as={RouterLink} mt="md" to="/cart">
+                          Edit cart items
+                        </Button>
+                      </Box>
+                      <Divider gridArea={CheckoutArea.divider} />
+                      <Box gridArea={CheckoutArea.checkout} position="relative">
+                        <Loader visible={loading} />
+                        <CustomerSelector
+                          open={currentStep === CHECKOUT_STEPS.EMAIL}
+                          onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.EMAIL)}
+                          email={values.email}
+                          setEmail={setEmail}
+                        />
+
+                        <Divider my="md" />
+
+                        <AddressSection
+                          id="shipping-address"
+                          open={currentStep === CHECKOUT_STEPS.SHIPPING_ADDRESS}
+                          countries={countries.items}
+                          onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.SHIPPING_ADDRESS)}
+                          title="Shipping address"
+                          submitLabel="Continue"
+                          selectedAddress={values.shippingAddress}
+                          setAddress={setShippingAddress}
+                          errors={errors.shippingAddress}
+                          availableAddresses={addresses}
+                          defaultSelected={defaultShippingAddress}
+                          email={values.email}
+                        />
+
+                        <Divider my="md" />
+
+                        <AddressSection
+                          id="billing-address"
+                          open={currentStep === CHECKOUT_STEPS.BILLING_ADDRESS}
+                          onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.BILLING_ADDRESS)}
+                          title="Billing address"
+                          submitLabel="Continue"
+                          countries={countries.items}
+                          selectedAddress={values.billingAddress}
+                          setAddress={setBillingAddress}
+                          setUseTheSame={setBillingSameAsShipping}
+                          useTheSame={values.billingSameAsShipping}
+                          labelUseTheSame="My billing address is the same as shipping"
+                          availableAddresses={addresses}
+                          defaultSelected={defaultBillingAddress}
+                          email={values.email}
+                        />
+
+                        <Divider my="md" />
+
+                        <ShippingMethodSection
+                          open={currentStep === CHECKOUT_STEPS.SHIPPING}
+                          onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.SHIPPING)}
+                          shippingAddress={values.shippingAddress}
+                          selectedShipping={values.shippingMethod}
+                          setShippingAddress={setShippingAddress}
+                          availableShippingMethods={availableShippingMethods}
+                          setShipping={setShippingMethod}
+                          errors={errors.shippingMethod}
+                        />
+
+                        <Divider my="md" />
+
+                        <PaymentMethodSection
+                          open={currentStep === CHECKOUT_STEPS.PAYMENT}
+                          onEditRequested={() => this.setCurrentStep(CHECKOUT_STEPS.PAYMENT)}
+                          selectedPayment={values.paymentMethod}
+                          availablePaymentMethods={availablePaymentMethods}
+                          setPayment={setPaymentMethod}
+                          errors={errors.paymentMethod}
+                        />
+
+                        <Divider my="md" />
+                        <SnapQuery
+                          variables={{
+                            orderId: newOrderId
+                          }}
+                        >
+                          {({ snapToken }) => (
+                            <Box>
+                              <SnapPayment
+                                quoteId={snapToken.quoteId}
+                                snaptoken={snapToken.name}
+                                orderid={result.orderId}
+                              />
+                            </Box>
+                          )}
+                        </SnapQuery>
+                        <ErrorList errors={errors.order} />
+                        {currentStep === CHECKOUT_STEPS.CONFIRMATION && (
+                          <Button onClick={placeOrder}>Place order</Button>
+                        )}
+                      </Box>
+                    </Box>
+                  )}
+                </CartQuery>
+              )}
+            </CountriesQuery>
+          );
+        }
         // order has been placed successfully so we show confirmation
         orderResult = <Redirect to="/checkout/confirmation" />;
       }
