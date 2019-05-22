@@ -7,5 +7,9 @@ module.exports = {
   i18n: {
     resourcePackages: ['@deity/falcon-i18n']
   },
-  moduleOverride: {}
+  moduleOverride: {
+    // '@deity/falcon-ecommerce-uikit/dist/Countries/CountriesQuery': './src/components/Countries/CountriesQuery'
+    '@deity/falcon-ui/dist/components/Input': './src/components/FalconUi/dist/components/Input',
+    '@deity/falcon-ui/dist/components/Select': './src/components/FalconUi/dist/components/Select'
+  }
 };
