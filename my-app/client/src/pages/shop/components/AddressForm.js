@@ -100,13 +100,6 @@ const AddressForm = ({ countries = [], submitLabel = 'Save', id = '', autoComple
         gridArea={AddressFormArea.postCode}
       />
       <FormField
-        name="city"
-        label="City"
-        required
-        autoComplete={getAutoComplete('address-level2')}
-        gridArea={AddressFormArea.city}
-      />
-      <FormField
         name="telephone"
         label="Phone"
         required
