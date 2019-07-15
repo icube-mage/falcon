@@ -191,7 +191,6 @@ class CheckoutWizard extends React.Component {
     let addresses;
     let defaultShippingAddress;
     let defaultBillingAddress;
-    values.billingSameAsShipping = true;
     let orderResult = null;
 
     if (!loading && result) {

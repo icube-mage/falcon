@@ -28,3 +28,7 @@ examples/**/webpack-stats.json
 examples/**/config/*
 !examples/**/config/custom-environment-variables.*
 !examples/**/config/default.*
+
+my-app/client/build/*
+packages/*
+examples/*

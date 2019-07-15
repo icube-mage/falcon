@@ -91,7 +91,11 @@
   "newCustomer": {
     "title": "Nieuwe Klanten",
     "benefitsHeader": "Het maken van een account heeft veel voordelen:",
-    "benefitsList": ["check sneller", "bewaar meer dan één adres", "volg bestellingen en meer"],
+    "benefitsList": [
+      "check sneller",
+      "bewaar meer dan één adres",
+      "volg bestellingen en meer"
+    ],
     "createAnAccount": "Create an account"
   }
 }

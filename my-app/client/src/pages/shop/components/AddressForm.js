@@ -95,14 +95,14 @@ const AddressForm = ({ countries = [], submitLabel = 'Save', id = '', autoComple
       <FormField
         name="postcode"
         label="Post code"
-        required
+        type="zipcode"
         autoComplete={getAutoComplete('postal-code')}
         gridArea={AddressFormArea.postCode}
       />
       <FormField
         name="telephone"
-        label="Phone"
-        required
+        label="Telephone"
+        type="telephone"
         autoComplete={getAutoComplete('tel')}
         gridArea={AddressFormArea.phone}
       />

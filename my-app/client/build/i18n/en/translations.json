@@ -157,7 +157,11 @@
   "newCustomer": {
     "title": "New Customers",
     "benefitsHeader": "Creating an account has many benefits:",
-    "benefitsList": ["check out faster", "keep more than one address", "track orders and more"],
+    "benefitsList": [
+      "check out faster",
+      "keep more than one address",
+      "track orders and more"
+    ],
     "createAnAccount": "Create an account"
   },
   "account": {
