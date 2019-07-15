@@ -1,0 +1,875 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.24.0",
+  "hash": "a07de0ac4197e733dc94",
+  "publicPath": "/",
+  "outputPath": "/home/mage2user/site/releases/falcon/my-app/client/build/public",
+  "assetsByChunkName": {
+    "vendors~account~shop/cart~shop/checkout": [
+      "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+      "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map"
+    ],
+    "shop/cart": [
+      "static/js/shop/cart.8e3616d1.chunk.js",
+      "static/js/shop/cart.8e3616d1.chunk.js.map"
+    ],
+    "vendors~shop/cart": [
+      "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+      "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map"
+    ],
+    "i18n/en-translations": [
+      "static/js/i18n/en-translations.9fafc51c.chunk.js",
+      "static/js/i18n/en-translations.9fafc51c.chunk.js.map"
+    ],
+    "i18n/nl-translations": [
+      "static/js/i18n/nl-translations.bdff06ea.chunk.js",
+      "static/js/i18n/nl-translations.bdff06ea.chunk.js.map"
+    ],
+    "account": [
+      "static/js/account.80e9aafb.chunk.js",
+      "static/js/account.80e9aafb.chunk.js.map"
+    ],
+    "blog/blog": [
+      "static/js/blog/blog.e9293b60.chunk.js",
+      "static/js/blog/blog.e9293b60.chunk.js.map"
+    ],
+    "blog/post": [
+      "static/js/blog/post.e1d56638.chunk.js",
+      "static/js/blog/post.e1d56638.chunk.js.map"
+    ],
+    "checkout/payment-item": [
+      "static/js/checkout/payment-item.b0927f3d.chunk.js",
+      "static/js/checkout/payment-item.b0927f3d.chunk.js.map"
+    ],
+    "checkout/payment/credit-card": [
+      "static/js/checkout/payment/credit-card.58c78b54.chunk.js",
+      "static/js/checkout/payment/credit-card.58c78b54.chunk.js.map"
+    ],
+    "client": [
+      "static/js/client.a07de0ac.js",
+      "static/js/client.a07de0ac.js.map"
+    ],
+    "polyfills": [
+      "static/js/polyfills.2b92f549.chunk.js",
+      "static/js/polyfills.2b92f549.chunk.js.map"
+    ],
+    "shop/category": [
+      "static/js/shop/category.90d1d26f.chunk.js",
+      "static/js/shop/category.90d1d26f.chunk.js.map"
+    ],
+    "shop/checkout": [
+      "static/js/shop/checkout.41ec408c.chunk.js",
+      "static/js/shop/checkout.41ec408c.chunk.js.map"
+    ],
+    "vendors": [
+      "static/js/vendors.6e38d51f.chunk.js",
+      "static/js/vendors.6e38d51f.chunk.js.map"
+    ],
+    "vendors~account": [
+      "static/js/vendors~account.4e2a2c67.chunk.js",
+      "static/js/vendors~account.4e2a2c67.chunk.js.map"
+    ],
+    "vendors~checkout/payment-item": [
+      "static/js/vendors~checkout/payment-item.479ad689.chunk.js",
+      "static/js/vendors~checkout/payment-item.479ad689.chunk.js.map"
+    ],
+    "vendors~checkout/payment/credit-card": [
+      "static/js/vendors~checkout/payment/credit-card.53da50cc.chunk.js",
+      "static/js/vendors~checkout/payment/credit-card.53da50cc.chunk.js.map"
+    ],
+    "vendors~shop/category": [
+      "static/js/vendors~shop/category.1a3880a8.chunk.js",
+      "static/js/vendors~shop/category.1a3880a8.chunk.js.map"
+    ],
+    "vendors~shop/checkout": [
+      "static/js/vendors~shop/checkout.9d227779.chunk.js",
+      "static/js/vendors~shop/checkout.9d227779.chunk.js.map"
+    ]
+  },
+  "assets": [
+    {
+      "name": "static/js/account.80e9aafb.chunk.js",
+      "size": 17308,
+      "chunks": [
+        5
+      ],
+      "chunkNames": [
+        "account"
+      ]
+    },
+    {
+      "name": "static/js/account.80e9aafb.chunk.js.map",
+      "size": 2245,
+      "chunks": [
+        5
+      ],
+      "chunkNames": [
+        "account"
+      ]
+    },
+    {
+      "name": "static/js/blog/blog.e9293b60.chunk.js",
+      "size": 6128,
+      "chunks": [
+        6
+      ],
+      "chunkNames": [
+        "blog/blog"
+      ]
+    },
+    {
+      "name": "static/js/blog/blog.e9293b60.chunk.js.map",
+      "size": 6877,
+      "chunks": [
+        6
+      ],
+      "chunkNames": [
+        "blog/blog"
+      ]
+    },
+    {
+      "name": "static/js/blog/post.e1d56638.chunk.js",
+      "size": 3493,
+      "chunks": [
+        7
+      ],
+      "chunkNames": [
+        "blog/post"
+      ]
+    },
+    {
+      "name": "static/js/blog/post.e1d56638.chunk.js.map",
+      "size": 1211,
+      "chunks": [
+        7
+      ],
+      "chunkNames": [
+        "blog/post"
+      ]
+    },
+    {
+      "name": "static/js/checkout/payment-item.b0927f3d.chunk.js",
+      "size": 1720,
+      "chunks": [
+        8
+      ],
+      "chunkNames": [
+        "checkout/payment-item"
+      ]
+    },
+    {
+      "name": "static/js/checkout/payment-item.b0927f3d.chunk.js.map",
+      "size": 3073,
+      "chunks": [
+        8
+      ],
+      "chunkNames": [
+        "checkout/payment-item"
+      ]
+    },
+    {
+      "name": "static/js/checkout/payment/credit-card.58c78b54.chunk.js",
+      "size": 250,
+      "chunks": [
+        9
+      ],
+      "chunkNames": [
+        "checkout/payment/credit-card"
+      ]
+    },
+    {
+      "name": "static/js/checkout/payment/credit-card.58c78b54.chunk.js.map",
+      "size": 283,
+      "chunks": [
+        9
+      ],
+      "chunkNames": [
+        "checkout/payment/credit-card"
+      ]
+    },
+    {
+      "name": "static/js/client.a07de0ac.js",
+      "size": 231571,
+      "chunks": [
+        10
+      ],
+      "chunkNames": [
+        "client"
+      ]
+    },
+    {
+      "name": "static/js/client.a07de0ac.js.map",
+      "size": 9592,
+      "chunks": [
+        10
+      ],
+      "chunkNames": [
+        "client"
+      ]
+    },
+    {
+      "name": "static/js/i18n/en-translations.9fafc51c.chunk.js",
+      "size": 7471,
+      "chunks": [
+        3
+      ],
+      "chunkNames": [
+        "i18n/en-translations"
+      ]
+    },
+    {
+      "name": "static/js/i18n/en-translations.9fafc51c.chunk.js.map",
+      "size": 114,
+      "chunks": [
+        3
+      ],
+      "chunkNames": [
+        "i18n/en-translations"
+      ]
+    },
+    {
+      "name": "static/js/i18n/nl-translations.bdff06ea.chunk.js",
+      "size": 2405,
+      "chunks": [
+        4
+      ],
+      "chunkNames": [
+        "i18n/nl-translations"
+      ]
+    },
+    {
+      "name": "static/js/i18n/nl-translations.bdff06ea.chunk.js.map",
+      "size": 114,
+      "chunks": [
+        4
+      ],
+      "chunkNames": [
+        "i18n/nl-translations"
+      ]
+    },
+    {
+      "name": "static/js/polyfills.2b92f549.chunk.js",
+      "size": 25706,
+      "chunks": [
+        11
+      ],
+      "chunkNames": [
+        "polyfills"
+      ]
+    },
+    {
+      "name": "static/js/polyfills.2b92f549.chunk.js.map",
+      "size": 283,
+      "chunks": [
+        11
+      ],
+      "chunkNames": [
+        "polyfills"
+      ]
+    },
+    {
+      "name": "static/js/shop/cart.8e3616d1.chunk.js",
+      "size": 9204,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "shop/cart"
+      ]
+    },
+    {
+      "name": "static/js/shop/cart.8e3616d1.chunk.js.map",
+      "size": 1653,
+      "chunks": [
+        1
+      ],
+      "chunkNames": [
+        "shop/cart"
+      ]
+    },
+    {
+      "name": "static/js/shop/category.90d1d26f.chunk.js",
+      "size": 3173,
+      "chunks": [
+        12
+      ],
+      "chunkNames": [
+        "shop/category"
+      ]
+    },
+    {
+      "name": "static/js/shop/category.90d1d26f.chunk.js.map",
+      "size": 3093,
+      "chunks": [
+        12
+      ],
+      "chunkNames": [
+        "shop/category"
+      ]
+    },
+    {
+      "name": "static/js/shop/checkout.41ec408c.chunk.js",
+      "size": 33418,
+      "chunks": [
+        13
+      ],
+      "chunkNames": [
+        "shop/checkout"
+      ]
+    },
+    {
+      "name": "static/js/shop/checkout.41ec408c.chunk.js.map",
+      "size": 1213,
+      "chunks": [
+        13
+      ],
+      "chunkNames": [
+        "shop/checkout"
+      ]
+    },
+    {
+      "name": "static/js/vendors.6e38d51f.chunk.js",
+      "size": 295791,
+      "chunks": [
+        14
+      ],
+      "chunkNames": [
+        "vendors"
+      ]
+    },
+    {
+      "name": "static/js/vendors.6e38d51f.chunk.js.map",
+      "size": 7102,
+      "chunks": [
+        14
+      ],
+      "chunkNames": [
+        "vendors"
+      ]
+    },
+    {
+      "name": "static/js/vendors~account.4e2a2c67.chunk.js",
+      "size": 29868,
+      "chunks": [
+        15
+      ],
+      "chunkNames": [
+        "vendors~account"
+      ]
+    },
+    {
+      "name": "static/js/vendors~account.4e2a2c67.chunk.js.map",
+      "size": 1453,
+      "chunks": [
+        15
+      ],
+      "chunkNames": [
+        "vendors~account"
+      ]
+    },
+    {
+      "name": "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+      "size": 33973,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "vendors~account~shop/cart~shop/checkout"
+      ]
+    },
+    {
+      "name": "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+      "size": 1011,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "vendors~account~shop/cart~shop/checkout"
+      ]
+    },
+    {
+      "name": "static/js/vendors~checkout/payment-item.479ad689.chunk.js",
+      "size": 353308,
+      "chunks": [
+        16
+      ],
+      "chunkNames": [
+        "vendors~checkout/payment-item"
+      ]
+    },
+    {
+      "name": "static/js/vendors~checkout/payment-item.479ad689.chunk.js.map",
+      "size": 13743,
+      "chunks": [
+        16
+      ],
+      "chunkNames": [
+        "vendors~checkout/payment-item"
+      ]
+    },
+    {
+      "name": "static/js/vendors~checkout/payment/credit-card.53da50cc.chunk.js",
+      "size": 76271,
+      "chunks": [
+        17
+      ],
+      "chunkNames": [
+        "vendors~checkout/payment/credit-card"
+      ]
+    },
+    {
+      "name": "static/js/vendors~checkout/payment/credit-card.53da50cc.chunk.js.map",
+      "size": 5593,
+      "chunks": [
+        17
+      ],
+      "chunkNames": [
+        "vendors~checkout/payment/credit-card"
+      ]
+    },
+    {
+      "name": "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+      "size": 44298,
+      "chunks": [
+        2
+      ],
+      "chunkNames": [
+        "vendors~shop/cart"
+      ]
+    },
+    {
+      "name": "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+      "size": 980,
+      "chunks": [
+        2
+      ],
+      "chunkNames": [
+        "vendors~shop/cart"
+      ]
+    },
+    {
+      "name": "static/js/vendors~shop/category.1a3880a8.chunk.js",
+      "size": 31451,
+      "chunks": [
+        18
+      ],
+      "chunkNames": [
+        "vendors~shop/category"
+      ]
+    },
+    {
+      "name": "static/js/vendors~shop/category.1a3880a8.chunk.js.map",
+      "size": 2361,
+      "chunks": [
+        18
+      ],
+      "chunkNames": [
+        "vendors~shop/category"
+      ]
+    },
+    {
+      "name": "static/js/vendors~shop/checkout.9d227779.chunk.js",
+      "size": 43653,
+      "chunks": [
+        19
+      ],
+      "chunkNames": [
+        "vendors~shop/checkout"
+      ]
+    },
+    {
+      "name": "static/js/vendors~shop/checkout.9d227779.chunk.js.map",
+      "size": 2333,
+      "chunks": [
+        19
+      ],
+      "chunkNames": [
+        "vendors~shop/checkout"
+      ]
+    },
+    {
+      "name": "static/manifest.da10f699.webmanifest",
+      "size": 1191,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/128x128.fe1e4d0b.png",
+      "size": 4342,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/144x144.8ef8602f.png",
+      "size": 4817,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/152x152.c69c1f35.png",
+      "size": 5290,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/192x192.e9b2ed19.png",
+      "size": 6887,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/384x384.4e3d6609.png",
+      "size": 15324,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/512x512.19ff6dd4.png",
+      "size": 21231,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/72x72.5ef3566f.png",
+      "size": 2200,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/96x96.52899069.png",
+      "size": 2967,
+      "chunks": [],
+      "chunkNames": []
+    },
+    {
+      "name": "static/media/logo.f95b6250.png",
+      "size": 15901,
+      "chunks": [],
+      "chunkNames": []
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "client": {
+      "chunks": [
+        11,
+        14,
+        10
+      ],
+      "assets": [
+        "static/js/polyfills.2b92f549.chunk.js",
+        "static/js/polyfills.2b92f549.chunk.js.map",
+        "static/js/vendors.6e38d51f.chunk.js",
+        "static/js/vendors.6e38d51f.chunk.js.map",
+        "static/js/client.a07de0ac.js",
+        "static/js/client.a07de0ac.js.map"
+      ],
+      "children": {
+        "prefetch": [
+          {
+            "name": "shop/SidebarContents",
+            "chunks": [
+              0,
+              2,
+              1
+            ],
+            "assets": [
+              "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+              "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+              "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+              "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+              "static/js/shop/cart.8e3616d1.chunk.js",
+              "static/js/shop/cart.8e3616d1.chunk.js.map"
+            ]
+          }
+        ]
+      },
+      "childAssets": {
+        "prefetch": [
+          "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+          "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+          "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+          "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+          "static/js/shop/cart.8e3616d1.chunk.js",
+          "static/js/shop/cart.8e3616d1.chunk.js.map"
+        ]
+      }
+    }
+  },
+  "namedChunkGroups": {
+    "client": {
+      "chunks": [
+        11,
+        14,
+        10
+      ],
+      "assets": [
+        "static/js/polyfills.2b92f549.chunk.js",
+        "static/js/polyfills.2b92f549.chunk.js.map",
+        "static/js/vendors.6e38d51f.chunk.js",
+        "static/js/vendors.6e38d51f.chunk.js.map",
+        "static/js/client.a07de0ac.js",
+        "static/js/client.a07de0ac.js.map"
+      ],
+      "children": {
+        "prefetch": [
+          {
+            "name": "shop/SidebarContents",
+            "chunks": [
+              0,
+              2,
+              1
+            ],
+            "assets": [
+              "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+              "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+              "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+              "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+              "static/js/shop/cart.8e3616d1.chunk.js",
+              "static/js/shop/cart.8e3616d1.chunk.js.map"
+            ]
+          }
+        ]
+      },
+      "childAssets": {
+        "prefetch": [
+          "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+          "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+          "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+          "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+          "static/js/shop/cart.8e3616d1.chunk.js",
+          "static/js/shop/cart.8e3616d1.chunk.js.map"
+        ]
+      }
+    },
+    "account": {
+      "chunks": [
+        0,
+        15,
+        5
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~account.4e2a2c67.chunk.js",
+        "static/js/vendors~account.4e2a2c67.chunk.js.map",
+        "static/js/account.80e9aafb.chunk.js",
+        "static/js/account.80e9aafb.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "account/sign-in": {
+      "chunks": [
+        0,
+        2,
+        1
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+        "static/js/shop/cart.8e3616d1.chunk.js",
+        "static/js/shop/cart.8e3616d1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shop/resetpassword": {
+      "chunks": [
+        0,
+        2,
+        1
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+        "static/js/shop/cart.8e3616d1.chunk.js",
+        "static/js/shop/cart.8e3616d1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "blog/blog": {
+      "chunks": [
+        6
+      ],
+      "assets": [
+        "static/js/blog/blog.e9293b60.chunk.js",
+        "static/js/blog/blog.e9293b60.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shop/cart": {
+      "chunks": [
+        0,
+        2,
+        1
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+        "static/js/shop/cart.8e3616d1.chunk.js",
+        "static/js/shop/cart.8e3616d1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shop/checkout": {
+      "chunks": [
+        0,
+        19,
+        13
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~shop/checkout.9d227779.chunk.js",
+        "static/js/vendors~shop/checkout.9d227779.chunk.js.map",
+        "static/js/shop/checkout.41ec408c.chunk.js",
+        "static/js/shop/checkout.41ec408c.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shop/SidebarContents": {
+      "chunks": [
+        0,
+        2,
+        1
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+        "static/js/shop/cart.8e3616d1.chunk.js",
+        "static/js/shop/cart.8e3616d1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "blog/post": {
+      "chunks": [
+        7
+      ],
+      "assets": [
+        "static/js/blog/post.e1d56638.chunk.js",
+        "static/js/blog/post.e1d56638.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shop/category": {
+      "chunks": [
+        18,
+        12
+      ],
+      "assets": [
+        "static/js/vendors~shop/category.1a3880a8.chunk.js",
+        "static/js/vendors~shop/category.1a3880a8.chunk.js.map",
+        "static/js/shop/category.90d1d26f.chunk.js",
+        "static/js/shop/category.90d1d26f.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "shop/product": {
+      "chunks": [
+        0,
+        2,
+        1
+      ],
+      "assets": [
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js",
+        "static/js/vendors~account~shop/cart~shop/checkout.ef59bc43.chunk.js.map",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js",
+        "static/js/vendors~shop/cart.85fe2cc3.chunk.js.map",
+        "static/js/shop/cart.8e3616d1.chunk.js",
+        "static/js/shop/cart.8e3616d1.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "i18n/en-translations": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "static/js/i18n/en-translations.9fafc51c.chunk.js",
+        "static/js/i18n/en-translations.9fafc51c.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "i18n/en-translations-json": {
+      "chunks": [
+        3
+      ],
+      "assets": [
+        "static/js/i18n/en-translations.9fafc51c.chunk.js",
+        "static/js/i18n/en-translations.9fafc51c.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "i18n/nl-translations": {
+      "chunks": [
+        4
+      ],
+      "assets": [
+        "static/js/i18n/nl-translations.bdff06ea.chunk.js",
+        "static/js/i18n/nl-translations.bdff06ea.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "i18n/nl-translations-json": {
+      "chunks": [
+        4
+      ],
+      "assets": [
+        "static/js/i18n/nl-translations.bdff06ea.chunk.js",
+        "static/js/i18n/nl-translations.bdff06ea.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "checkout/payment-item": {
+      "chunks": [
+        16,
+        8
+      ],
+      "assets": [
+        "static/js/vendors~checkout/payment-item.479ad689.chunk.js",
+        "static/js/vendors~checkout/payment-item.479ad689.chunk.js.map",
+        "static/js/checkout/payment-item.b0927f3d.chunk.js",
+        "static/js/checkout/payment-item.b0927f3d.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "checkout/payment/credit-card": {
+      "chunks": [
+        17,
+        9
+      ],
+      "assets": [
+        "static/js/vendors~checkout/payment/credit-card.53da50cc.chunk.js",
+        "static/js/vendors~checkout/payment/credit-card.53da50cc.chunk.js.map",
+        "static/js/checkout/payment/credit-card.58c78b54.chunk.js",
+        "static/js/checkout/payment/credit-card.58c78b54.chunk.js.map"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "children": []
+}

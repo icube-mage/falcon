@@ -56,12 +56,11 @@
     "examples/shop-with-blog/client",
     "examples/shop-with-blog/server"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "resolutions": {
     "apollo-env": "0.3.1"
+  },
+  "dependencies": {
+    "@deity/eslint-config-falcon": "^0.1.1",
+    "@typescript-eslint/eslint-plugin": "^1.9.0"
   }
 }
